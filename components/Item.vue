@@ -1,9 +1,9 @@
 <template>
   <div class="item">
     <!-- Convert item to a bootstrap row for proper alignment -->
-    <b-row>
+    <b-row @click="$router.push('/items/'+index)">
       <!-- Don't overflow text inside column -->
-      <b-col class="d-inline-block text-truncate" @click="showDecryptedItem">
+      <b-col class="d-inline-block text-truncate">
         <!-- Only display encrypted data. -->
         {{ item[1] }}
       </b-col>
@@ -11,7 +11,7 @@
         <!-- There should be a Remove button in every Item (on the right). -->
         <!-- The Remove button should be red. -->
         <div class="float-right">
-          <b-button size="sm" variant="danger" @click="removeItem">Remove</b-button>
+          <b-button size="sm" variant="danger" @click.stop="removeItem">Remove</b-button>
         </div>
       </b-col>
     </b-row>
@@ -21,7 +21,8 @@
 export default {
   // Add the item name as a prop.
   props: {
-    item: Array
+    item: Array,
+    index: Number
   },
   methods: {
     // Emit an event to the parent component to remove this item.
@@ -44,6 +45,10 @@ export default {
   padding: 0.5rem 2rem;
   line-height: 2rem;
   border-bottom: 1px solid $item-border-color;
+}
+
+.item:hover {
+  background-color: $item-hover !important;
 }
 
 .item:nth-child(even) {

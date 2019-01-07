@@ -11,5 +11,6 @@
 .footer {
   height: $footer-height;
   background-color: $light-grey;
+  text-align: center;
 }
 </style>

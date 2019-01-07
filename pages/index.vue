@@ -7,7 +7,13 @@
 
       <!-- Convert Input and Button to Bootstrap 4 equivalent. -->
       <!-- Listen to removeItem() emits from the Item component -->
-      <Item v-for="item in items" :key="item[0]" :item="item" @removeItem="removeItem">{{item}}</Item>
+      <Item
+        v-for="(item, index) in items"
+        :key="item[0]"
+        :item="item"
+        :index="index"
+        @removeItem="removeItem"
+      ></Item>
 
       <Footer></Footer>
     </div>
@@ -90,7 +96,6 @@ body {
   font-family: $fonts;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: $text-color;
 }
 
