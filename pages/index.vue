@@ -1,6 +1,5 @@
 <template>
-  <div class="container">
-
+  <b-container>
     <div id="app">
       <Menu></Menu>
 
@@ -8,16 +7,11 @@
 
       <!-- Convert Input and Button to Bootstrap 4 equivalent. -->
       <!-- Listen to removeItem() emits from the Item component -->
-      <Item
-        v-for="item in items"
-        :key="item[0]"
-        :item="item"
-        @removeItem="removeItem"
-      >{{item}}</Item>
+      <Item v-for="item in items" :key="item[0]" :item="item" @removeItem="removeItem">{{item}}</Item>
 
       <Footer></Footer>
     </div>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -85,7 +79,7 @@ export default {
 html,
 body {
   /* Add extra top margin so it doesn't get covered by the sticky navbar. */
-  margin-top: 5rem;
+  margin-top: 3rem;
   padding: 0;
 }
 

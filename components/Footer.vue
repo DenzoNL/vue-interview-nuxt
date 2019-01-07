@@ -1,11 +1,9 @@
 <template>
-
-  <div class="row footer fixed-bottom">
-    <div class="col align-self-center">
+  <b-row class="footer fixed-bottom">
+    <b-col class="align-self-center">
       <p>© Footer</p>
-    </div>
-  </div>
-
+    </b-col>
+  </b-row>
 </template>
 <style lang="scss">
 @import "~/assets/scss/_variables.scss";

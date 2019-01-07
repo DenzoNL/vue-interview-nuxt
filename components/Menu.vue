@@ -9,9 +9,9 @@
     5. Added a shadow to the menu-bar
 
   -->
-  <nav class="navbar navbar-light fixed-top shadow-sm">
-    <span class="navbar-brand mb-0 h1 mx-auto">To Do List</span>
-  </nav>
+  <b-navbar type="light" class="fixed-top shadow-sm">
+    <span class="navbar-brand mx-auto">To Do List</span>
+  </b-navbar>
 </template>
 <style lang="scss">
 @import "~/assets/scss/_variables.scss";

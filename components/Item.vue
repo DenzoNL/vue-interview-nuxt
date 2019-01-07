@@ -1,25 +1,20 @@
 <template>
   <div class="item">
     <!-- Convert item to a bootstrap row for proper alignment -->
-    <div class="row">
-      <span
-        class="col d-inline-block text-truncate"
-        @click="showDecryptedItem"
-      >
+    <b-row>
+      <!-- Don't overflow text inside column -->
+      <b-col class="d-inline-block text-truncate" @click="showDecryptedItem">
         <!-- Only display encrypted data. -->
         {{ item[1] }}
-      </span>
-      <div class="col">
+      </b-col>
+      <b-col>
         <!-- There should be a Remove button in every Item (on the right). -->
         <!-- The Remove button should be red. -->
         <div class="float-right">
-          <button
-            class="btn btn-sm btn-danger"
-            @click="removeItem"
-          >Remove</button>
+          <b-button size="sm" variant="danger" @click="removeItem">Remove</b-button>
         </div>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
   </div>
 </template>
 <script>
@@ -48,11 +43,14 @@ export default {
   height: 3rem;
   padding: 0.5rem 2rem;
   line-height: 2rem;
-
   border-bottom: 1px solid $item-border-color;
 }
 
 .item:nth-child(even) {
   background-color: $item-alternate-bg;
+}
+// Fix sticky footer clipping over item contents
+.item:nth-last-child(2) {
+  margin-bottom: $footer-height + 2rem;
 }
 </style>
