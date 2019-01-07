@@ -16,7 +16,7 @@
 <style lang="scss">
 @import "~/assets/scss/_variables.scss";
 .navbar {
-  background-color: $menu-bg;
+  background: $menu-bg;
   height: 4rem;
 }
 </style>
