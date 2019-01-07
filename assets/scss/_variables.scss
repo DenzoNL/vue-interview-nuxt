@@ -1,0 +1,22 @@
+// Color palette
+$light-grey: #f0f0f0;
+$light-blue: #2c3e50;
+$dark-blue: rgba(123, 159, 227, 1);
+
+// App Component
+$fonts: "Avenir",
+Helvetica,
+Arial,
+sans-serif;
+$text-color: $light-blue;
+$shadow-color: $dark-blue;
+
+// Menu Component
+$menu-bg: $light-grey;
+
+// Item Component
+$item-border-color: $light-grey;
+$item-alternate-bg: $light-grey;
+
+// Footer component
+$footer-height: 10rem;
