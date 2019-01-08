@@ -9,7 +9,7 @@
       <!-- Listen to removeItem() emits from the Item component -->
       <Item
         v-for="(item, index) in items"
-        :key="item[0]"
+        :key="item.name"
         :item="item"
         :index="index"
         @removeItem="removeItem"
@@ -26,9 +26,6 @@ import Item from "~/components/Item";
 import Footer from "~/components/Footer";
 import ItemCreator from "~/components/ItemCreator";
 
-// Import the SHA256 encryption library.
-import SHA256 from "crypto-js/sha256";
-
 export default {
   name: "app",
   components: {
@@ -39,17 +36,15 @@ export default {
   },
 
   // Store items in localStorage upon change.
-
-  watch: {
-    items(newItems) {
-      localStorage.items = JSON.stringify(newItems); // localStorage only supports strings.
+  computed: {
+    items() {
+      return this.$store.state.items;
     }
   },
 
   data() {
     return {
-      newItem: "",
-      items: []
+      newItem: ""
     };
   },
 
@@ -61,20 +56,13 @@ export default {
       // Encrypt the data using SHA-256. As SHA-256 is one-way only
       // we cannot decrypt it so we must store a copy of the unencrypted contents as well.
       // This is NOT secure, so it would be better to use a two-way crypto algorithm.
-      this.items.push([newItem, SHA256(newItem).toString()]);
+      this.$store.commit("add", newItem);
     },
 
     // Callback to remove an item from the list.
     removeItem(itemToBeRemoved) {
       // Filter the array with the item to be removed
-      this.items = this.items.filter(item => item !== itemToBeRemoved);
-    }
-  },
-
-  // Upon mounting the component, load items from localStorage
-  mounted() {
-    if (localStorage.items) {
-      this.items = JSON.parse(localStorage.items); // localStorage only supports strings.
+      this.$store.commit("remove", itemToBeRemoved);
     }
   }
 };

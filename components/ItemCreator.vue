@@ -6,7 +6,7 @@
       <b-form @submit.prevent="addItem">
         <div class="item-creator">
           <b-input-group class="mb-3">
-            <b-input v-model="newItem" :placeholder="newItemPlaceholder"></b-input>
+            <b-input v-model="newItem" type="text" :placeholder="newItemPlaceholder"></b-input>
             <b-input-group-append>
               <!-- The Add button should be green -->
               <!-- Disable the Add button if the input is empty. -->

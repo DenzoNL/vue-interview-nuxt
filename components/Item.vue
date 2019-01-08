@@ -5,7 +5,7 @@
       <!-- Don't overflow text inside column -->
       <b-col class="d-inline-block text-truncate">
         <!-- Only display encrypted data. -->
-        {{ item[1] }}
+        {{ item.hash }}
       </b-col>
       <b-col>
         <!-- There should be a Remove button in every Item (on the right). -->
@@ -21,7 +21,7 @@
 export default {
   // Add the item name as a prop.
   props: {
-    item: Array,
+    item: Object,
     index: Number
   },
   methods: {

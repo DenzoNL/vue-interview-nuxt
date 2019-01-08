@@ -5,8 +5,8 @@
 
       <b-row>
         <b-col>
-          <b-card :title="decryptedItem[0]" sub-title="SHA-256 Hash:">
-            <p class="card-text">{{ decryptedItem[1] }}</p>
+          <b-card :title="item.name" sub-title="SHA-256 Hash:">
+            <p class="card-text">{{ item.hash }}</p>
             <b-link :to="'/'" class="card-link">Back to list</b-link>
           </b-card>
         </b-col>
@@ -28,20 +28,8 @@ export default {
   },
 
   computed: {
-    decryptedItem: function() {
-      let id = this.$route.params.id;
-
-      if (localStorage.items == null) {
-        return ["No items have been addes yet.", ""];
-      }
-
-      let items = JSON.parse(localStorage.items);
-
-      if (id > items.length) {
-        return ["This item does not exist", ""];
-      }
-
-      return items[id];
+    item: function() {
+      return this.$store.state.items[this.$route.params.id];
     }
   }
 };
