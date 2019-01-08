@@ -12,8 +12,9 @@ export const mutations = {
             hash: SHA256(item).toString()
         })
     },
-    remove(state, { itemToBeRemoved }) {
-        state.items = state.items.filter(item => item !== itemToBeRemoved);
+    remove(state, { item }) {
+        state.items.splice(state.items.indexOf(item), 1)
+
 
     },
 }
